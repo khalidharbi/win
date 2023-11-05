@@ -1,4 +1,11 @@
-<?php ?>
+<?php
+$firstName =  $_POST['firstName'];
+$lastName =   $_POST['lastName'];
+$email   =    $_POST['email'];
+
+echo $firstName . ' ' . $lastName . ' ' . $email;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +17,7 @@
 </head>
 <body>
 
-  <form action="index.php">
+  <form action="index.php" method="POST">
     <input type="text" name="firstName" id="firstName" placeholder="first name">
     <input type="text" name="lastName" id="lastName" placeholder="last name">
     <input type="text" name="email" id="email" placeholder="email">
