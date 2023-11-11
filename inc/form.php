@@ -39,7 +39,7 @@ if (isset($_POST['submit'])){
         VALUES ('$firstName', '$lastName', '$email')";
 
         if(mysqli_query($conn, $sql)){
-        header('Location: index.php');
+        header('Location: ' . $_SERVER['PHP-SELF']);
         }else{
           echo 'Error: ' . mysqli_error($conn);
           }
