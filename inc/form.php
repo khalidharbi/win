@@ -7,32 +7,43 @@ $email   =    $_POST['email'];
 $errors = [
     'firstNameError' => '',
     'lastNameError' => '',
-    'emailError' => '',
+    'emailError' => ''
 ];
 
 if (isset($_POST['submit'])){
 
-    $firstName =  mysqli_real_escape_string($conn, $_POST['firstName']);
-    $lastName =   mysqli_real_escape_string($conn, $_POST['lastName']);
-    $email   =    mysqli_real_escape_string($conn, $_POST['email']);
-
-    $sql = "INSERT INTO users(firstName, lastName, email) 
-            VALUES ('$firstName', '$lastName', '$email')";
-
+    // first name validation
     if(empty($firstName)){
         $errors['firstNameError'] = 'يرجى ادخال الاسم الاول';
-    }elseif(empty($lastName)){
+    }
+    
+    // last name validatoin
+    if(empty($lastName)){
         $errors['lastNameError'] = 'يرجى ادخال الاسم الاخير';
-    }elseif(empty($email)){
+    }
+    
+    // email validation
+    if(empty($email)){
         $errors['emailError'] = 'يرجى ادخال الايميل';
     }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $errors['emailError'] = 'يرجى ادخال ايميل صحيح';
-    }else{
-      if(mysqli_query($conn, $sql)){
-        header('Location: index.php');
-      }else{
-      echo 'Error: ' . mysqli_error($conn);
-      }
     }
 
+    // no error validatoin
+    if(!array_filter($errors)){
+        $firstName =  mysqli_real_escape_string($conn, $_POST['firstName']);
+        $lastName =   mysqli_real_escape_string($conn, $_POST['lastName']);
+        $email   =    mysqli_real_escape_string($conn, $_POST['email']);
+
+        $sql = "INSERT INTO users(firstName, lastName, email) 
+        VALUES ('$firstName', '$lastName', '$email')";
+
+        if(mysqli_query($conn, $sql)){
+        header('Location: index.php');
+        }else{
+          echo 'Error: ' . mysqli_error($conn);
+          }
+    }
 }
+
+
