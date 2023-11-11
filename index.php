@@ -1,11 +1,5 @@
 <?php
-
-$conn = mysqli_connect('localhost', 'root', 'root', 'win');
-
-if(!$conn){
-    echo 'Error: ' . mysqli_connect_error();
-}
-
+include './inc/db.php';
 
 $firstName =  $_POST['firstName'];
 $lastName =   $_POST['lastName'];
