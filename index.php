@@ -3,7 +3,7 @@
 $conn = mysqli_connect('localhost', 'root', 'root', 'win');
 
 if(!$conn){
-    echo 'Eroor: '. mysqli_connect_error();
+    echo 'Error: ' . mysqli_connect_error();
 }
 
 
@@ -12,7 +12,13 @@ $lastName =   $_POST['lastName'];
 $email   =    $_POST['email'];
 
 if (isset($_POST['submit'])){
-    echo $firstName . ' ' . $lastName . ' ' . $email;
+    //echo $firstName . ' ' . $lastName . ' ' . $email;
+
+    $sql = "INSERT INTO users(firstName, lastName, email) 
+            VALUES ('$firstName', '$lastName', '$email')";
+
+    mysqli_query($conn, $sql);
+
 }
 
 ?>
