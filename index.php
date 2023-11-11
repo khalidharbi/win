@@ -17,6 +17,8 @@ if (isset($_POST['submit'])){
         echo 'Enter last name';
     }elseif(empty($email)){
         echo 'Enter email';
+    }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      echo 'Enter a right email';
     }else{
       if(mysqli_query($conn, $sql)){
         header('Location: index.php');
