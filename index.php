@@ -12,7 +12,7 @@ if (isset($_POST['submit'])){
             VALUES ('$firstName', '$lastName', '$email')";
 
     if(mysqli_query($conn, $sql)){
-        echo 'success';
+        header('Location: index.php');
     }else{
       echo 'Error: ' . mysqli_error($conn);
     }
