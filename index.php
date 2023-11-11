@@ -11,7 +11,11 @@ if (isset($_POST['submit'])){
     $sql = "INSERT INTO users(firstName, lastName, email) 
             VALUES ('$firstName', '$lastName', '$email')";
 
-    mysqli_query($conn, $sql);
+    if(mysqli_query($conn, $sql)){
+        echo 'success';
+    }else{
+      echo 'Error: ' . mysqli_error($conn);
+    }
 
 }
 
