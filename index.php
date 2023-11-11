@@ -1,33 +1,17 @@
 <?php
 include './inc/db.php';
+include './inc/form.php';
 
-$firstName =  $_POST['firstName'];
-$lastName =   $_POST['lastName'];
-$email   =    $_POST['email'];
+$sql = 'SELECT * FROM users';
+$result = mysqli_query($conn, $sql);
+$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-if (isset($_POST['submit'])){
-    //echo $firstName . ' ' . $lastName . ' ' . $email;
+echo '<pre>';
+print_r($users);
+echo '</pre>';
 
-    $sql = "INSERT INTO users(firstName, lastName, email) 
-            VALUES ('$firstName', '$lastName', '$email')";
-
-    if(empty($firstName)){
-        echo 'Enter first name';
-    }elseif(empty($lastName)){
-        echo 'Enter last name';
-    }elseif(empty($email)){
-        echo 'Enter email';
-    }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      echo 'Enter a right email';
-    }else{
-      if(mysqli_query($conn, $sql)){
-        header('Location: index.php');
-      }else{
-      echo 'Error: ' . mysqli_error($conn);
-      }
-    }
-
-}
+mysqli_free_result($result);
+mysqli_close($conn);
 
 ?>
 
