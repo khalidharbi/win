@@ -11,10 +11,18 @@ if (isset($_POST['submit'])){
     $sql = "INSERT INTO users(firstName, lastName, email) 
             VALUES ('$firstName', '$lastName', '$email')";
 
-    if(mysqli_query($conn, $sql)){
-        header('Location: index.php');
+    if(empty($firstName)){
+        echo 'Enter first name';
+    }elseif(empty($lastName)){
+        echo 'Enter last name';
+    }elseif(empty($email)){
+        echo 'Enter email';
     }else{
+      if(mysqli_query($conn, $sql)){
+        header('Location: index.php');
+      }else{
       echo 'Error: ' . mysqli_error($conn);
+      }
     }
 
 }
