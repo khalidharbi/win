@@ -1,6 +1,5 @@
-#countdown {
-    color: #0d6efd;
-    padding: 10px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -10,10 +9,10 @@
     padding: 20px;
 }
 
-
-#cards{
-    display: none;
-} 
+#countdown {
+    color: #0d6efd;
+    padding: 10px;
+}
 
 #loader {
     position: fixed;
@@ -23,16 +22,17 @@
 }
 
 .loader-con {
-  display: none;
-  position: fixed;  
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000eb;
-  opacity: 0.8;
-  z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 1000;
 }
+
 
 #circularLoader {
     display: block;
@@ -42,10 +42,29 @@
 
 .list-group-item {
     background: transparent;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
 }
 
 img {
     max-width: 100%;
+}
+
+form {
+    border: 2px solid #0d6efd;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+form h3 {
+    color: #0d6efd;
+}
+
+form .form-label {
+    color: #0d6efd;
 }
 
 form .form-control {

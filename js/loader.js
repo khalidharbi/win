@@ -15,8 +15,8 @@ function progressSim(){
 	diff = ((al / 100) * Math.PI*2*10).toFixed(2);
 	ctx.clearRect(0, 0, cw, ch);
 	ctx.lineWidth = 17;
-	ctx.fillStyle = '#4285f4';
-	ctx.strokeStyle = "#4285f4";
+	ctx.fillStyle = '#0d6efd';
+	ctx.strokeStyle = "#0d6efd";
 	ctx.textAlign = "center";
 	ctx.font="28px monospace";
 	ctx.fillText(al+'%', cw*.52, ch*.5+5, cw+12);
@@ -36,5 +36,5 @@ const loader = document.querySelector(".loader-con");
 
 win.addEventListener('click', function () {
     loader.style.display = 'block';
-    sim = setInterval(progressSim, 20);
+    sim = setInterval(progressSim, 80);
 });

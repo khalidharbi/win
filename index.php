@@ -32,26 +32,26 @@ include './inc/db_close.php';
 
 <div class="position-relative text-center ">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
-<form  action="<?php $_SERVER['PHP-SELF'] ?>" method="POST">
-  <h3>الرجاء أدخل معلوماتك</h3>
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+        <h3>الرجاء أدخل معلوماتك</h3>
 
-  <div class="mb-3">
-    <label for="firstName" class="form-label">الاسم الأول</label>
-    <input type="text" name="firstName" class="form-control" id="firstName" value="<?php echo $firstName ?>">
-    <div class="form-text error"><?php echo $errors['firstNameError'] ?></div>
-  </div>
+        <div class="mb-3">
+             <label for="firstName" class="form-label">الاسم الأول</label>
+             <input type="text" name="firstName" class="form-control" id="firstName" value="<?php echo $firstName ?>">
+             <div class="form-text error"><?php echo $errors['firstNameError'] ?></div>
+        </div>
 
-  <div class="mb-3">
-    <label for="lastName" class="form-label">الاسم الأخير</label>
-    <input type="text" name="lastName" class="form-control" id="lastName" value="<?php echo $lastName ?>">
-    <div class="form-text error"><?php echo $errors['lastNameError'] ?></div>
-  </div>
+        <div class="mb-3">
+             <label for="lastName" class="form-label">الاسم الأخير</label>
+             <input type="text" name="lastName" class="form-control" id="lastName" value="<?php echo $lastName ?>">
+             <div class="form-text error"><?php echo $errors['lastNameError'] ?></div>
+        </div>
 
-  <div class="mb-3">
-    <label for="email" class="form-label">البريد الألكتروني</label>
-    <input type="text" name="email" class="form-control" id="email" value="<?php echo $email ?>">
-    <div class="form-text error"><?php echo $errors['emailError'] ?></div>
-  </div>
+        <div class="mb-3">
+           <label for="email" class="form-label">البريدالالكتروني</label>
+           <input type="text" name="email" class="form-control" id="email" value="<?php echo $email ?>">
+           <div class="form-text error"><?php echo $errors['emailError'] ?></div>
+       </div>
 
   <button type="submit" name="submit" class="btn btn-primary">ارسال المعلومات</button>
 </form>
@@ -61,11 +61,10 @@ include './inc/db_close.php';
 
   
 <div class="loader-con">
-  <div id="loader">
-      <canvas id="circularLoader" width="200" height="200"></canvas>
-  </div>
+    <div id="loader">
+        <canvas id="circularLoader" width="200" height="200"></canvas>
+    </div>
 </div>
-
 
   <!-- Button trigger modal -->
 <div class="d-grid gap-2 col-6 mx-auto my-5">
